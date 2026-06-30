@@ -1,18 +1,5 @@
 [phases.setup]
-# system packages ที่ Pillow ต้องการ (libjpeg, freetype, zlib ฯลฯ)
-nixPkgs = [
-  "python312",
-  "libjpeg",
-  "zlib",
-  "freetype",
-  "lcms2",
-  "libwebp",
-  "openjpeg",
-  "libtiff",
-]
-
-[phases.install]
-cmds = ["pip install --upgrade pip", "pip install -r requirements.txt"]
+nixPkgs = ["zlib", "libjpeg", "freetype", "libtiff", "libwebp", "openjpeg"]
 
 [start]
 cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT"
